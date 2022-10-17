@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="agh.ics.oop.MapDirectionTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-17T13:48:06" hostname="LAPTOP-O8EOC9KI" time="0.042">
+  <properties/>
+  <testcase name="testNext()" classname="agh.ics.oop.MapDirectionTest" time="0.034"/>
+  <testcase name="testPrevious()" classname="agh.ics.oop.MapDirectionTest" time="0.001"/>
+  <testcase name="Vector2dTest()" classname="agh.ics.oop.MapDirectionTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
