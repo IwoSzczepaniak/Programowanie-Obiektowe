@@ -1,0 +1,5 @@
+// Rozwiązanie zadania 10 z lab1
+Aby wykluczyć pojawienie się dwóch zwierząt na jednym polu, można stworzyć tablicę dwuwymiarową 5x5 (od 0 do 4),
+początkowo wypełnioną np. null'ami i gdy pojawi się zwierzę na którymś polu zmieniać tę wartość na true.
+Wykorzystując taką tablicę należałoby sprawdzić czy poruszając się w przód bądź w tył nie wejdziemy na już zajęte pole,
+można by to było rozwiązać podobnie jak przy powstrzymywaniu przed wyjściem poza za dopuszczony obszar.
