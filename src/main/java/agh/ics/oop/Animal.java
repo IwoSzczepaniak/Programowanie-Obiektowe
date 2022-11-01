@@ -1,36 +1,52 @@
 package agh.ics.oop;
+import java.util.Map;
 import java.util.Vector;
 
 public class Animal {
-    private MapDirection orientation = MapDirection.NORTH;
-    private Vector2d location = new Vector2d(2, 2);
+    private MapDirection orientation;
+    private Vector2d location;
+    IWorldMap map;
+    public Animal(){
+        orientation = MapDirection.NORTH;
+        location = new Vector2d(2, 2);
+    }
 
+    public Animal(IWorldMap map) {
+        this.map = map;
+    }
+    public Animal(IWorldMap map, Vector2d initialPosition){
+        orientation = MapDirection.NORTH;
+        location = initialPosition;
+        this.map = map;
+    }
     public String toString() {
-        return String.format("%s,%s", location, orientation);
+        String orient = switch (orientation) {
+            case NORTH ->  "N";
+            case EAST ->   "E";
+            case WEST->   "W";
+            case SOUTH ->  "S";
+        };
+        return String.format(orient);
     }
     public boolean isAt(Vector2d position){
         return position.equals(location);
     }
     public void move(MoveDirection direction) {
-        if (direction == MoveDirection.RIGHT){
-            orientation = orientation.next();
+        Vector2d new_location = location;
+        switch (direction) {
+            case RIGHT -> orientation = orientation.next();
+            case LEFT -> orientation = orientation.previous();
+            case FORWARD-> new_location = new_location.add(orientation.toUnitVector());
+            case BACKWARD -> new_location = new_location.subtract(orientation.toUnitVector());
         }
-        else if (direction == MoveDirection.LEFT){
-            orientation = orientation.previous();
+        if (map.canMoveTo(new_location)){ //działa na mapie
+            map.updateMap(location, new_location);
+            location = new_location;
         }
-        else if (direction == MoveDirection.FORWARD){
-            if (orientation == MapDirection.NORTH && location.y +1 <= 4) location.y = location.y + 1;
-            else if (orientation == MapDirection.EAST && location.x +1 <= 4) location.x = location.x + 1;
-            else if (orientation == MapDirection.SOUTH && location.y -1 >= 0) location.y = location.y - 1;
-            else if (orientation == MapDirection.WEST && location.x -1 >= 0) location.x = location.x - 1;
-        }
-        else if (direction == MoveDirection.BACKWARD){
-            if (orientation == MapDirection.SOUTH && location.y +1 <= 4) location.y = location.y + 1;
-            else if (orientation == MapDirection.WEST && location.x +1 <= 4) location.x = location.x + 1;
-            else if (orientation == MapDirection.NORTH && location.y -1 >= 0) location.y = location.y - 1;
-            else if (orientation == MapDirection.EAST && location.x -1 >= 0) location.x = location.x - 1;
-        }
+    }
 
+    public Vector2d loc(){
+        return location;
     }
 
 }

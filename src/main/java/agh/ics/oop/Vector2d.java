@@ -30,6 +30,7 @@ class Vector2d {
         }
         if (other.y > this.y){
             result.y = other.y;
+
         }
         return result;
     }

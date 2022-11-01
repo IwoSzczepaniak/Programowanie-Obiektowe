@@ -32,13 +32,14 @@ public class World {
         return result;
     }
 
-    public static String main(String [] args) {
-        Animal ssak = new Animal();
-        OptionsParser joystic = new OptionsParser();
-        MoveDirection [] moves = joystic.parse(args);
-        int i;
-        for(i=0; i< moves.length; i++) ssak.move(moves[i]);
-        return ssak.toString();
+
+    public static void main(String [] args) {
+        MoveDirection[] directions = new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
     }
+
 }
 

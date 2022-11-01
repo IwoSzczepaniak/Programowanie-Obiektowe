@@ -33,12 +33,12 @@ enum MapDirection {
         };
     }
 
-    public String toUnitVector() {
+    public Vector2d toUnitVector() {
         return switch (this) {
-            case NORTH -> "(1,0)";
-            case SOUTH -> "(-1,0)";
-            case EAST -> "(0,1)";
-            case WEST -> "(0,-1)";
+            case NORTH -> new Vector2d(0,1);
+            case SOUTH -> new Vector2d(0,-1);
+            case EAST -> new Vector2d(1,0);
+            case WEST -> new Vector2d(-1,0);
         };
     }
 }
