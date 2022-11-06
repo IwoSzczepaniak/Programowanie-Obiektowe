@@ -1,8 +1,9 @@
+// Tests of NewRectangularMap and GrassField combined
 package agh.ics.oop;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InterfaceTest {
+public class AbstractWorldTests {
 
     public void check(IWorldMap map,String dir_res, Vector2d loc_res){
         Object animal1 = map.objectAt(loc_res);
@@ -10,6 +11,8 @@ public class InterfaceTest {
         if (animal1 instanceof Animal) {
             ani1 = (Animal) animal1;
         }
+        System.out.println(ani1.getPosition());
+        System.out.println(ani1.toString());
         assertEquals(loc_res, ani1.getPosition());
         assertEquals(dir_res, ani1.toString());
     }
@@ -20,14 +23,12 @@ public class InterfaceTest {
         int height = 4;
         Vector2d [] positions = {new Vector2d(2,2)};
         MoveDirection[] directions = new OptionsParser().parse(tab);
-        IWorldMap map = new RectangularMap(width, height);
+        IWorldMap map = new NewRectangularMap(width, height);
         IEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
 
         check(map, "S", new Vector2d(3,2));
     }
-
-
 
     @Test
     public void test2() {
@@ -36,7 +37,7 @@ public class InterfaceTest {
         int height = 10;
         Vector2d [] positions = {new Vector2d(1,8), new Vector2d(8,2)};
         MoveDirection[] directions = new OptionsParser().parse(tab);
-        IWorldMap map = new RectangularMap(width, height);
+        IWorldMap map = new NewRectangularMap(width, height);
         IEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
 
@@ -52,14 +53,56 @@ public class InterfaceTest {
         int height = 10; // 9
         Vector2d [] positions = {new Vector2d(2,1), new Vector2d(7,7), new Vector2d(6,0)};
         MoveDirection[] directions = new OptionsParser().parse(tab);
-        IWorldMap map = new RectangularMap(width, height);
+        IWorldMap map = new NewRectangularMap(width, height);
         IEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
 
         check(map, "S", new Vector2d(2,0));
         check(map, "S", new Vector2d(8,7));
         check(map, "E", new Vector2d(7,2));
+    }
 
+    @Test
+    public void test4() {
+        String [] tab = new String[]{"r","f","f","f","r"};
+        int n = 5;
+        Vector2d [] positions = {new Vector2d(2,2)};
+        MoveDirection[] directions = new OptionsParser().parse(tab);
+        IWorldMap map = new GrassField(n);
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+
+        check(map, "S", new Vector2d(5,2));
+    }
+
+    @Test
+    public void test5() {
+        String [] tab = new String[]{"l","f","l","l","r", "r", "f", "r", "f", "f", "f", "r", "b", "l", "l", "b"};
+        int n = 10;
+        Vector2d [] positions = {new Vector2d(1,8), new Vector2d(8,2)};
+        MoveDirection[] directions = new OptionsParser().parse(tab);
+        IWorldMap map = new GrassField(n);
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+
+        check(map, "S", new Vector2d(-1,8));
+        check(map, "E", new Vector2d(8,3));
+    }
+
+
+    @Test
+    public void test6() {
+        String [] tab = new String[]{"r", "r", "f", "r", "f", "f", "f", "f", "r", "f", "r", "f"};
+        int n = 20;
+        Vector2d [] positions = {new Vector2d(2,1), new Vector2d(7,7), new Vector2d(6,0)};
+        MoveDirection[] directions = new OptionsParser().parse(tab);
+        IWorldMap map = new GrassField(n);
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+
+        check(map, "S", new Vector2d(2,-1));
+        check(map, "E", new Vector2d(7,2));
+        check(map, "S", new Vector2d(9,7));
     }
 
 }

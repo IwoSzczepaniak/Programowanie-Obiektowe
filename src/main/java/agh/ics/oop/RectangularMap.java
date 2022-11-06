@@ -10,7 +10,7 @@ public class RectangularMap implements IWorldMap{
     }
     @Override
     public boolean place(Animal animal){
-        Vector2d animal_location = animal.loc();
+        Vector2d animal_location = animal.getPosition();
         if (isOccupied(animal_location)) return false;
         else map[animal_location.y][animal_location.x] = animal;
         return true;

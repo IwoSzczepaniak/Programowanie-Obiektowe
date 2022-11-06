@@ -16,7 +16,6 @@ public class SimulationEngine implements IEngine{
         for(Vector2d curr: this.animalBegPositions){
             Animal ani = new Animal(mapInstance, curr);
             if(mapInstance.place(ani)) Creatures.add(ani);
-
         }
     }
 
@@ -27,7 +26,7 @@ public class SimulationEngine implements IEngine{
             i ++;
             if (i == Creatures.size()) i = 0;
 
-//            System.out.println(mapInstance);
+            System.out.println(mapInstance);
         }
     }
 }

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="agh.ics.oop.InterfaceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-01T18:41:44" hostname="LAPTOP-O8EOC9KI" time="0.043">
-  <properties/>
-  <testcase name="test1()" classname="agh.ics.oop.InterfaceTest" time="0.039"/>
-  <testcase name="test2()" classname="agh.ics.oop.InterfaceTest" time="0.001"/>
-  <testcase name="test3()" classname="agh.ics.oop.InterfaceTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,0 +1,3 @@
+Dostrzegając uproszczenie implementacji wynikające z dodania interfejsu IMapElement oraz klasy AbstactWorldElement, zdecydowano o ich użyciu. 
+Aby nie utracić poprzedniej postaci RectangularMap, zdecydowano stworzyć NewRectangularMap, która dziedziczy z klasy AbstractWorldMap i ma budowę bliższą GrassField.
+Dodano też zniknięcie i pojawienie się w nowym miejscu trawy po zdeptaniu przez zwierzę.
