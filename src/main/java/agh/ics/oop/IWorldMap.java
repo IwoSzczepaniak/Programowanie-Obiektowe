@@ -40,12 +40,4 @@ public interface IWorldMap {
      */
     Object objectAt(Vector2d position);
 
-
-//    Own implementation
-//    Updates map to current situation
-    void updateMap(Vector2d old_position, Vector2d new_position);
-
-
-
-
 }

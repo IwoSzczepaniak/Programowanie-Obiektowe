@@ -23,7 +23,7 @@ public class RectangularMap implements IWorldMap{
     public Object objectAt(Vector2d position){
         return map[position.y][position.x];
     }
-    @Override
+
     public void updateMap(Vector2d old_position, Vector2d new_position){
         map[new_position.y][new_position.x] = map[old_position.y][old_position.x];
         map[old_position.y][old_position.x] = null;

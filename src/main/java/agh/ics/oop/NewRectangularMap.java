@@ -10,14 +10,10 @@ public class NewRectangularMap extends AbstractWorldMap{
         }
         return false;
     }
-    Object map;
     int width ;
     int height;
 
     public NewRectangularMap(int width , int height){
         this.width = width;
-        this.height = height;
-        this.map = new Object();
-    }
-
+        this.height = height;}
 }
