@@ -12,25 +12,7 @@ public class AnimalTest {
         for(i=0; i< moves.length; i++) ssak.move(moves[i]);
         return ssak.toString();
     }
-    @Test
-    public void test1() {
-        String [] tab = {"r","f","f","f"};
-        String wyn = "(4,2),E";
-        assertEquals(wyn, test(tab));
-    }
-    @Test
-    public void test2() {
-        String [] tab = {"f","f","f", "l", "f","f","f", "l", "f","f"};
-        String wyn = "(0,2),S";
-        assertEquals(wyn, test(tab));
-    }
 
-    @Test
-    public void test3() {
-        String [] tab = {"l"};
-        String wyn = "(2,2),W";
-        assertEquals(wyn, test(tab));
-    }
 
     @Test
     public void test3_long() {

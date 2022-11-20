@@ -24,6 +24,8 @@ public class Animal extends AbstractWorldElement{
         this.worldMap = (AbstractWorldMap) map;
         this.observerList = new ArrayList<>();
         addObserver(worldMap);
+//        MapBoundary borders = new MapBoundary();
+//        addObserver(borders);
     }
     void addObserver(IPositionChangeObserver observer){
         observerList.add(observer);
@@ -56,7 +58,6 @@ public class Animal extends AbstractWorldElement{
         }
         if (worldMap.canMoveTo(new_location)){ //działa na mapie
             positionChanged(location, new_location);
-//            worldMap.updateMap(location, new_location);
             location = new_location;
 
         }

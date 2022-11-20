@@ -5,17 +5,16 @@ import java.util.ArrayList;
 public class SimulationEngine implements IEngine{
     private final MoveDirection [] animalMoves;
     private final IWorldMap mapInstance;
-    private final Vector2d [] animalBegPositions;
     private final ArrayList<Animal> Creatures = new ArrayList<>();
 
     public SimulationEngine( MoveDirection [] animalMoves, IWorldMap mapInstance, Vector2d [] animalBegPositions){
-        this.animalBegPositions = animalBegPositions;
         this.mapInstance = mapInstance;
         this.animalMoves = animalMoves;
 
-        for(Vector2d curr: this.animalBegPositions){
+        for(Vector2d curr: animalBegPositions){
             Animal ani = new Animal(mapInstance, curr);
             if(mapInstance.place(ani)) Creatures.add(ani);
+            else throw new IllegalArgumentException(curr + " some creature is already in this place");
         }
     }
 
