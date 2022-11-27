@@ -13,14 +13,6 @@ public class OptionsParser {
                 case "left", "l" -> result.add(MoveDirection.LEFT);
                 default -> throw new IllegalArgumentException(tab[i] + " is not legal move specification");
             }
-//            if (tab[i].equals("forward")) ;
-//            if (tab[i].equals("f")) result.add(MoveDirection.FORWARD);
-//            if (tab[i].equals("backward")) result.add(MoveDirection.BACKWARD);
-//            if (tab[i].equals("b")) result.add(MoveDirection.BACKWARD);
-//            if (tab[i].equals("right")) result.add(MoveDirection.RIGHT);
-//            if (tab[i].equals("r")) result.add(MoveDirection.RIGHT);
-//            if (tab[i].equals("left")) result.add(MoveDirection.LEFT);
-//            if (tab[i].equals("l")) result.add(MoveDirection.LEFT);
         }
         MoveDirection [] map_result = new MoveDirection [result.size()] ;
         int j;

@@ -1,7 +1,10 @@
 package agh.ics.oop;
 
 public interface IMapElement {
-    public Vector2d getPosition();
-    public String toString();
-    public boolean isAt(Vector2d position);
+    Vector2d getPosition();
+    String toString();
+    boolean isAt(Vector2d position);
+
+    String elementDirection();
+
 }

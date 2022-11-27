@@ -11,4 +11,10 @@ public class AbstractWorldElement implements IMapElement{
     public boolean isAt(Vector2d position){
         return position.equals(location);
     }
+
+    @Override
+    public String elementDirection(){
+        return "src/main/resources/grass.png";
+    }
+
 }

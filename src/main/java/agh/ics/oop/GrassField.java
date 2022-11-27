@@ -71,48 +71,16 @@ public class GrassField extends AbstractWorldMap{
         if (grassOnMap.containsKey(position)) return grassOnMap.get(position);
         return null;
     }
-//
-//    public Vector2d lowLeft() {
-//        int minX = 2147483647;
-//        int minY = 2147483647;
-//        for (Vector2d location : animalsOnMap.keySet()) {
-//            if (location.x < minX) minX = location.x;
-//            if (location.y < minY) minY = location.y;
-//        }
-//        for (Vector2d location : grassOnMap.keySet()) {
-//            if (location.x < minX) minX = location.x;
-//            if (location.y < minY) minY = location.y;
-//        }
-//        return new Vector2d(minX, minY);
-//    }
-//
-//    public Vector2d upRight() {
-//        int maxX = -2147483648;
-//        int maxY = -2147483648;
-//        for (Vector2d location : animalsOnMap.keySet()) {
-//            if (location.x > maxX) maxX = location.x;
-//            if (location.y > maxY) maxY = location.y;
-//        }
-//        for (Vector2d location : grassOnMap.keySet()) {
-//            if (location.x > maxX) maxX = location.x;
-//            if (location.y > maxY) maxY = location.y;
-//        }
-//        return new Vector2d(maxX, maxY);
-//    }
-
     public Vector2d lowLeft(){
         return borders.lowerLeft();
     }
     public Vector2d upRight(){
         return borders.upperRight();
     }
+
     public String toString () {
         MapVisualizer scene = new MapVisualizer(this);
         return scene.draw(borders.lowerLeft(), borders.upperRight());
     }
-//    public String toString () {
-//        MapVisualizer scene = new MapVisualizer(this);
-//        return scene.draw(borders.lowLeft(), borders.upRight());
-//    }
 
 }
